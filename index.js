@@ -58,4 +58,9 @@ app.post("/books/:id/update", (req,res) => {
     res.redirect("/books")
 })
 
+app.get("/books/:id/delete", (req,res) => {
+    db.get('books').remove({id : req.params.id}).write()
+    res.redirect("/books")
+})
+
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))

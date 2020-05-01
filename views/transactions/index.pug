@@ -1,0 +1,30 @@
+h1  Transaction
+
+form(action="transactions/search" method="GET")
+    input(type="text", name="q" value=q)
+    button Search
+
+form(method='POST')
+  button(type="submit") Create
+  span  User Name
+  select(name='userId')
+    each user in users
+      option( value=user.id) #{user.name}
+  span Book Title
+  select(name='bookId')
+    each book in books
+      option( value=book.id) #{book.title}
+
+  
+table(style="width: 100%; border-collapse: collapse")
+  thead
+    tr 
+      th(style="border: 1px solid black;") User Name
+      th(style="border: 1px solid black;") Book Title
+  tbody
+    each transaction in transactions
+      tr
+        td(style="border: 1px solid black;") #{transaction.userName}
+        td(style="border: 1px solid black;") #{transaction.bookTitle}
+
+        

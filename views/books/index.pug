@@ -8,10 +8,17 @@ form(action="/books/create" method="POST")
     input(type="text" name="title" placeholder="title book")
     input(type="text" name="description" placeholder="description book")
     button Create
-
-ul
+  
+table(style="width: 100%; border-collapse: collapse")
+  thead
+    tr
+      th(style="border: 1px solid black;") Title
+      th(style="border: 1px solid black;") Actions
+  tbody
     each book in books
-        li
-            span= book.title
-            a(href="/books/" + book.id + "/update") Edit
-            a(href="/books/" + book.id + "/delete") Delete
+      tr
+        td(style="border: 1px solid black;") #{book.title}
+        td(style="border: 1px solid black;display: flex; justify-content: space-evenly;")
+          a(href='/books/' + book.id + '/update') Update
+          span 
+          a(href='/books/' + book.id + '/delete') Delete

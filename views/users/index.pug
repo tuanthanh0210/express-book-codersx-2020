@@ -1,0 +1,27 @@
+h1  User List
+
+form(action="users/search" method='GET')
+    input(type="text" name="q" value=q)
+    button Search
+
+form(action='users/create' , method='POST')
+  button Create
+  span  Name
+  input(type='text', name='name')
+  span Phone
+  input(type='text', name='phone')
+  
+table(style="width: 100%; border-collapse: collapse")
+  thead
+    tr
+      th(style="border: 1px solid black;") Title
+      th(style="border: 1px solid black;") Phone
+      th(style="border: 1px solid black;") Actions
+  tbody
+    each user in users
+      tr
+        td(style="border: 1px solid black;") #{user.name}
+        td(style="border: 1px solid black;") #{user.phone}
+        td(style="border: 1px solid black;display: flex; justify-content: space-evenly;")
+          a(href='/users/' + user.id + '/update') Update
+          a(href='/users/' + user.id + '/delete') Delete

@@ -1,0 +1,29 @@
+{
+  "books": [
+    {
+      "id": "1",
+      "title": "JS",
+      "description": "Tự học JS"
+    },
+    {
+      "id": "2",
+      "title": "HTML",
+      "description": "This is Hyper Text Makup Language"
+    },
+    {
+      "id": "3",
+      "title": "CSS",
+      "description": "Do you want your website very besutiful ?"
+    },
+    {
+      "id": "4",
+      "title": "React",
+      "description": "Yes, you are the UI developer"
+    },
+    {
+      "id": "B2jTCNCx2",
+      "title": "ES6",
+      "description": "ES6"
+    }
+  ]
+}

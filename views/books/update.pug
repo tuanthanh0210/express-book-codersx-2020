@@ -1,0 +1,6 @@
+h1  Update Book
+
+form(action="/books/"+ book.id +"/update" method="POST")
+    input(type="text" value=book.title name="title")
+    input(type="text" value=book.description name="description")
+    button Update

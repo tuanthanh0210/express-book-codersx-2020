@@ -1,0 +1,17 @@
+h1 Book list
+
+form(action="books/search" method='GET')
+    input(type="text" name="q" value=q)
+    button Search
+
+form(action="/books/create" method="POST")
+    input(type="text" name="title" placeholder="title book")
+    input(type="text" name="description" placeholder="description book")
+    button Create
+
+ul
+    each book in books
+        li
+            span= book.title
+            a(href="/books/" + book.id + "/update") Edit
+            a(href="/books/" + book.id + "/delete") Delete

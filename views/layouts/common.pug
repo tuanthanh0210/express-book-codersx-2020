@@ -1,0 +1,30 @@
+html
+  head
+    link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css")
+    script(src='https://code.jquery.com/jquery-3.4.1.slim.min.js')
+    script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js')
+    script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js')
+    link(rel='stylesheet', href='/style/custom.css')
+  body
+    nav.navbar.navbar-expand-sm.navbar-light.bg-light
+      a.navbar-brand(href='/')
+        img(src='https://coders-x.com/images/events/codersx.png' width='100px')
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNavAltMarkup', aria-controls='navbarNavAltMarkup', aria-expanded='false', aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarNavAltMarkup.collapse.navbar-collapse
+        .navbar-nav.ml-auto
+          a.nav-item.nav-link.active(href='/books') Book
+          a.nav-item.nav-link.active(href='/users') Users
+          a.nav-item.nav-link.active(href='/transactions') Transaction
+        if user
+          a.btn.btn-primary(href="/users/profile") #{user.name}
+          a.nav-item.nav-link.active(href="/auth/login") Logout
+        else 
+          a.nav-item.nav-link.active(href="/auth/login") Login
+          a(href="/auth/register") Register
+
+
+      
+    .container
+      block content
+      

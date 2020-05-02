@@ -1,24 +1,34 @@
-h1 Book list
+extends ../layouts/common
+block content
+  h3.mt-4  Book List
 
-form(action="books/search" method='GET')
-    input(type="text" name="q" value=q)
-    button Search
+  form(action="books/search" method='GET')
+    .form-group.d-flex
+      input.form-control(type="text" name="q" value=q)
+      button.btn.btn-primary.ml-2 Search
 
-form(action="/books/create" method="POST")
-    input(type="text" name="title" placeholder="title book")
-    input(type="text" name="description" placeholder="description book")
-    button Create
-  
-table(style="width: 100%; border-collapse: collapse")
-  thead
-    tr
-      th(style="border: 1px solid black;") Title
-      th(style="border: 1px solid black;") Actions
-  tbody
-    each book in books
+  form(action="/books/create" method="POST")
+    .form-group
+      label(for="title") Title Book
+      input#title.form-control(type="text" name="title" )
+      label.mt-3(for="description") Description Book
+      input#description.form-control(type="text" name="description")
+      button.btn.btn-primary.mt-3 Create
+    
+  table.table.table-hover
+    thead
       tr
-        td(style="border: 1px solid black;") #{book.title}
-        td(style="border: 1px solid black;display: flex; justify-content: space-evenly;")
-          a(href='/books/' + book.id + '/update') Update
-          span 
-          a(href='/books/' + book.id + '/delete') Delete
+        th Title3
+        th Description                                                                                                                                                                                                                                                                                                                                  
+        th Actions
+    tbody
+      each book in books
+        tr
+          td #{book.title}
+          td #{book.description}
+          td
+            a(href='/books/' + book.id + '/update') 
+              button.btn.btn-primary Update
+            span 
+            a(href='/books/' + book.id + '/delete')
+              button.btn.btn-danger Delete

@@ -1,30 +1,48 @@
-h1  Transaction
+extends ../layouts/common
+block content
+  h1.mt-4  Transaction
 
-form(action="transactions/search" method="GET")
-    input(type="text", name="q" value=q)
-    button Search
+  form(action="transactions/search" method="GET")
+    .form-group.d-flex
+      input.form-control(type="text", name="q" value=q)
+      button.btn.btn-primary.ml-2 Search
 
-form(method='POST')
-  button(type="submit") Create
-  span  User Name
-  select(name='userId')
-    each user in users
-      option( value=user.id) #{user.name}
-  span Book Title
-  select(name='bookId')
-    each book in books
-      option( value=book.id) #{book.title}
+  form(method='POST')
+    .form-group
+      .mt-2
+        label User Name
+        select.browser-default.custom-select(name='userId')
+          each user in users
+            option( value=user.id) #{user.name}
+      .mt-2
+        label Book Title
+        select.browser-default.custom-select(name='bookId')
+          each book in books
+            option( value=book.id) #{book.title}
+    button.btn.btn-primary(type="submit") Create
 
-  
-table(style="width: 100%; border-collapse: collapse")
-  thead
-    tr 
-      th(style="border: 1px solid black;") User Name
-      th(style="border: 1px solid black;") Book Title
-  tbody
-    each transaction in transactions
-      tr
-        td(style="border: 1px solid black;") #{transaction.userName}
-        td(style="border: 1px solid black;") #{transaction.bookTitle}
+
+  table.table.table-hover
+    thead
+      tr 
+        th User Name
+        th Book Title
+        th Status
+        th Actions
+    tbody
+      each transaction in transactions
+        tr
+          td #{transaction.userName}
+          td #{transaction.bookTitle}
+          if transaction.isComplete 
+            td
+              span Đòi mãi mới trả 
+            td.text-center
+              a.btn.btn-primary(href="/transactions/" + transaction.id +"/complete") Complete
+          else
+            td
+              span Có dấu hiệu bùng
+            td.text-center
+              a.btn.btn-danger(href="/transactions/" + transaction.id +"/complete") Complete
 
         

@@ -1,27 +1,33 @@
-h1  User List
+extends ../layouts/common
+block content
+  h3.mt-4  User List
 
-form(action="users/search" method='GET')
-    input(type="text" name="q" value=q)
-    button Search
+  form(action="users/search" method='GET' )
+    .form-group.d-flex
+      input.form-control(type="text" name="q" value=q placeholder='search by name...')
+      button.btn.btn-primary.ml-2 Search
 
-form(action='users/create' , method='POST')
-  button Create
-  span  Name
-  input(type='text', name='name')
-  span Phone
-  input(type='text', name='phone')
-  
-table(style="width: 100%; border-collapse: collapse")
-  thead
-    tr
-      th(style="border: 1px solid black;") Title
-      th(style="border: 1px solid black;") Phone
-      th(style="border: 1px solid black;") Actions
-  tbody
-    each user in users
+  form(action='users/create' , method='POST')
+    label(for="name")  Name
+    input#name.form-control.mb-2(type='text', name='name')
+    label(for="phone") Phone
+    input#phone.form-control.mb-2(type='text', name='phone')
+    button.btn.btn-primary.mt-2 Create
+    
+  table.table.table-hover
+    thead
       tr
-        td(style="border: 1px solid black;") #{user.name}
-        td(style="border: 1px solid black;") #{user.phone}
-        td(style="border: 1px solid black;display: flex; justify-content: space-evenly;")
-          a(href='/users/' + user.id + '/update') Update
-          a(href='/users/' + user.id + '/delete') Delete
+        th Title
+        th Phone
+        th Actions
+    tbody
+      each user in users
+        tr
+          td #{user.name}
+          td #{user.phone}
+          td
+            a(href='/users/' + user.id + '/update') 
+              button.btn.btn-primary Update
+            a(href='/users/' + user.id + '/delete') 
+              button.btn.btn-danger Delete
+              

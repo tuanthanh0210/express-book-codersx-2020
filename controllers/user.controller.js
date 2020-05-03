@@ -17,12 +17,13 @@ module.exports.search = (req,res) => {
 }
 
 module.exports.postCreate = (req,res) => {
-    let id = shortid.generate();
     let newUser = {
-        id: id,
+        id: shortid.generate(),
         name: req.body.name,
         phone: req.body.phone
     }
+    
+    
     db.get("users").push(newUser).write();
     res.redirect("/users")    
 }

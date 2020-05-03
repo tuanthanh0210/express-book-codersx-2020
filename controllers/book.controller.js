@@ -19,12 +19,12 @@ module.exports.search = (req,res) => {
 }
 
 module.exports.postCreate = (req,res) => {
-    let id = shortid.generate();
     let newBook = {
-        id: id,
+        id: shortid.generate(),
         title: req.body.title,
         description: req.body.description
     }
+    
     db.get("books").push(newBook).write();
     res.redirect("/books")    
 }

@@ -1,6 +1,12 @@
-h1  Update Book
+extends ../layouts/common
+block content
 
-form(action="/books/"+ book.id +"/update" method="POST")
-    input(type="text" value=book.title name="title")
-    input(type="text" value=book.description name="description")
-    button Update
+    h1.mt-3  Update Book
+
+    form(action="/books/"+ book.id +"/update" method="POST")
+      .form-group
+        label.mt-2(for="title") Title Book
+        input#title.form-control(type="text" value=book.title name="title")
+        label.mt-2(for="description") Description Book
+        input#description.form-control(type="text" value=book.description name="description")
+        button.btn.btn-primary.mt-2 Update

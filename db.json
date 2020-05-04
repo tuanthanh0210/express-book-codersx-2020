@@ -53,6 +53,15 @@
       "isAdmin": false,
       "name": "Thanh",
       "phone": "123123"
+    },
+    {
+      "id": "3LlUt_Tk2",
+      "email": "liu@gmail.com",
+      "password": "$2b$10$uJtyz/J/lckTnVnrFB6tI.kFcvNp2dUSPyfK.QEGpCYAQU5diWK.2",
+      "wrongLoginCount": 0,
+      "isAdmin": false,
+      "name": "Liu",
+      "phone": "123"
     }
   ],
   "transactions": [

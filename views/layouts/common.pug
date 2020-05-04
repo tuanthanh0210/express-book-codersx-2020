@@ -17,11 +17,11 @@ html
           a.nav-item.nav-link.active(href='/users') Users
           a.nav-item.nav-link.active(href='/transactions') Transaction
         if user
-          a.btn.btn-primary(href="/users/profile") #{user.name}
-          a.nav-item.nav-link.active(href="/auth/login") Logout
+          a.nav-item.nav-link.active(href="/users/profile") #{user.name}
+          a.nav-item.nav-link.active(href="/auth/logout") Logout
         else 
           a.nav-item.nav-link.active(href="/auth/login") Login
-          a(href="/auth/register") Register
+          a.nav-item.nav-link.active(href="/auth/register") Register
 
 
       

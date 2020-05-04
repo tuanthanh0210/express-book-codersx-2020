@@ -28,53 +28,43 @@
   ],
   "users": [
     {
-      "id": "1b",
+      "id": "H3oPxVedv",
+      "name": "Admin",
+      "phone": "6996",
+      "email": "admin@gmail.com",
+      "password": "$2b$10$3txTbymDg7XHYShkNj.eoe5Sn1qvbwQhBpuyLzz4OCjf3jO0GLD2K",
+      "wrongLoginCount": 3,
+      "isAdmin": true
+    },
+    {
+      "id": "Vu7DGHB3G",
+      "email": "sayHi@gmail.com",
+      "password": "$2b$10$HeLeq0Tm6kfxVqTkDIswzeIayq0FJ5.6Zpm4eo6gBYsFm/d3sm8qO",
+      "wrongLoginCount": 2,
+      "isAdmin": false,
+      "name": "sayHi",
+      "phone": "123123"
+    },
+    {
+      "id": "eLRGOxJw9",
+      "email": "thanh@gmail.com",
+      "password": "$2b$10$0JjyyvgQd1N9d78xkKyOHuA2zcyHHMZ6XSikMeKS5KB/v.DW74XXS",
+      "wrongLoginCount": 0,
+      "isAdmin": false,
       "name": "Thanh",
-      "phone": "111"
-    },
-    {
-      "id": "2b",
-      "name": "Liu",
-      "phone": "222"
-    },
-    {
-      "id": "3b",
-      "name": "Thinh",
-      "phone": "333"
-    },
-    {
-      "name": "Thong",
-      "phone": "444",
-      "id": "1GcPoDGh0"
-    },
-    {
-      "id": "fJVp4SONh",
-      "name": "Tai",
-      "phone": "6969"
+      "phone": "123123"
     }
   ],
   "transactions": [
     {
-      "userId": "1b",
+      "userId": "eLRGOxJw9",
       "bookId": "1a",
-      "id": "mw_Z6MZDd",
-      "isComplete": true
+      "id": "akOiXmzSR"
     },
     {
-      "userId": "1b",
-      "bookId": "2a",
-      "id": "6TF_FZBR7",
-      "isComplete": true
-    },
-    {
-      "userId": "1GcPoDGh0",
-      "bookId": "3a",
-      "id": "SfF4aZtJN"
-    },
-    {
-      "userId": "1b",
-      "bookId": "1a",
-      "id": "PUMCBJ1p8"
+      "userId": "eLRGOxJw9",
+      "bookId": "4a",
+      "id": "Np-wpXtej"
     }
   ]
 }

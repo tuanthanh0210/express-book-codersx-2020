@@ -1,6 +1,6 @@
 extends ../layouts/common
 block content
-  h3.mt-4  Book List
+  h2.mt-4.mb-4.text-center  Book List
 
   if errors
     each error in errors
@@ -10,19 +10,20 @@ block content
     .form-group.d-flex
       input.form-control(type="text" name="q" value=q)
       button.btn.btn-primary.ml-2 Search
+  hr
 
   form(action="/books/create" method="POST")
     .form-group
       label(for="title") Title Book
-      input#title.form-control(type="text" name="title" )
+      input#title.form-control(type="text" name="title" value=values ? values.title : "")
       label.mt-3(for="description") Description Book
-      input#description.form-control(type="text" name="description")
+      input#description.form-control(type="text" name="description" value=values ? values.description : "")
       button.btn.btn-primary.mt-3 Create
-    
+  hr
   table.table.table-hover
     thead
       tr
-        th Title3
+        th Title
         th Description                                                                                                                                                                                                                                                                                                                                  
         th Actions
     tbody

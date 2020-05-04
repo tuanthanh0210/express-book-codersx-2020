@@ -13,7 +13,8 @@ module.exports.postCreate = (req,res,next) => {
     if(errors.length){
         res.render("books/index", {
             books: books,
-            errors : errors
+            errors : errors,
+            values : req.body
         })
         return;
     }

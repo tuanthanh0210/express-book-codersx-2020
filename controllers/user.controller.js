@@ -1,5 +1,7 @@
 const db = require('../db')
 const shortid = require('shortid')
+const bcrypt = require('bcrypt')
+const saltRounds = 10;
 
 const users = db.get("users").value();
 
@@ -16,13 +18,17 @@ module.exports.search = (req,res) => {
     })
 }
 
-module.exports.postCreate = (req,res) => {
+module.exports.postCreate = async (req,res) => {
+    let hashedPassword = await bcrypt.hash(req.body.password, saltRounds)
     let newUser = {
         id: shortid.generate(),
         name: req.body.name,
-        phone: req.body.phone
+        phone: req.body.phone,
+        email: req.body.email,
+        password: hashedPassword,
+        wrongLoginCount : 0,
+        isAdmin : false
     }
-    
     
     db.get("users").push(newUser).write();
     res.redirect("/users")    

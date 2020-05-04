@@ -9,6 +9,7 @@ module.exports.index = (req, res) => {
     let matchTrans = transactions.map(trans => {
     let book = books.find(book => book.id === trans.bookId);
     let user = users.find(user => user.id === trans.userId);
+    
       
     return { 
         bookTitle: book.title, 
@@ -17,11 +18,16 @@ module.exports.index = (req, res) => {
         isComplete : trans.isComplete    
     };
     });
+    let page = parseInt(req.query.page) || 1;
+    let perPage = 6;
+    let start  = (page - 1) * perPage;
+    let end = page * perPage;
    
     res.render("transactions/index", {
-      transactions: matchTrans,
+      transactions: matchTrans.slice(start,end),
       books,
       users,
+      totalPage: Math.ceil(matchTrans.length/perPage)
     });
 }
 

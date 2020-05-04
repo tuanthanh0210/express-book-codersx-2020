@@ -45,5 +45,10 @@ block content
               span Có dấu hiệu bùng
             td.text-center
               a.btn.btn-danger(href="/transactions/" + transaction.id +"/complete") Complete
-
+  nav
+    - var n = 1;
+    ul.pagination.justify-content-center
+      while n <= totalPage
+        li.page-item
+          a.page-link(href='/transactions?page=' + n)= n++
         

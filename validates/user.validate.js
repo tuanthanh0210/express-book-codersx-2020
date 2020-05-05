@@ -1,8 +1,9 @@
 const db = require("../db")
+const User = require("../models/user.model")
 
-let users = db.get("users").value();
+// let users = db.get("users").value();
 
-module.exports.postCreate = (req,res, next) => {
+module.exports.postCreate = async (req,res, next) => {
 
     let errors = [];
     if(!req.body.name){
@@ -24,9 +25,10 @@ module.exports.postCreate = (req,res, next) => {
     if (!req.body.email){
         errors.push("Email is require !")
     }
-
-    let checkEmail = users.find(user => user.email === req.body.email)
-    if(checkEmail){
+    // let users = await User.find();
+    // let checkEmail = users.find(user => user.email === req.body.email)
+    let user = await User.findOne({email: req.body.email});
+    if(user){
         errors.push("User have been already exists")
     }
     

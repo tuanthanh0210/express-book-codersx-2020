@@ -4,7 +4,9 @@ block content
 
   form.mt-3(action='/users/' + user.id + '/update' , method='POST')
     .form-group
-      input.form-control.mt-3(type='text', name='name' value=user.name)
-      input.form-control.mt-3(type='text', name='phone' value=user.phone)
-      button.btn.btn-primary.mt-3 Update
+      label(for='name') Name
+      input#name.form-control.mb-2(type='text', name='name' value=user.name )
+      label(for='phone') Phone
+      input#phone.form-control.mb-2(type='text', name='phone' value=user.phone )
+    button.btn.btn-primary.mt-3 Update
 

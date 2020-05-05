@@ -12,28 +12,46 @@ block content
       button.btn.btn-primary.ml-2 Search
   hr
 
-  form(action="/books/create" method="POST")
-    .form-group
-      label(for="title") Title Book
-      input#title.form-control(type="text" name="title" value=values ? values.title : "")
-      label.mt-3(for="description") Description Book
-      input#description.form-control(type="text" name="description" value=values ? values.description : "")
-      button.btn.btn-primary.mt-3 Create
+  if user
+    form(action="/books/create" method="POST")
+      .form-group
+        label(for="title") Title Book
+        input#title.form-control(type="text" name="title" value=values ? values.title : "")
+        label.mt-3(for="description") Description Book
+        input#description.form-control(type="text" name="description" value=values ? values.description : "")
+        button.btn.btn-primary.mt-3 Create
   hr
-  table.table.table-hover
+  .hire.ml-auto.d-flex.align-items-center.justify-content-end
+    form(action="/transactions", method="POST")
+      button.btn.btn-primary.ml-2 MyCart (#{count})
+  table.table.table-hover.mt-3
     thead
       tr
+        th Cover Book
         th Title
-        th Description                                                                                                                                                                                                                                                                                                                                  
-        th Actions
+        th Description   
+        if user                                                                                                                                                                                                                                                                                                                               
+          th Actions
+        if !user 
+          th Cart
     tbody
       each book in books
         tr
+          td
+            if book.coverUrl
+              img.rounded(src=book.coverUrl width="64" height="64")
+            else
+              img.rounded(src="https://res.cloudinary.com/dkh65bchm/image/upload/v1587720347/default-book_gwqxgy.jpg" width="64" height="64")
           td #{book.title}
           td #{book.description}
-          td
-            a(href='/books/' + book.id + '/update') 
-              button.btn.btn-primary Update
-            span 
-            a(href='/books/' + book.id + '/delete')
-              button.btn.btn-danger Delete
+          if user
+            td
+              a(href='/books/' + book.id + '/update') 
+                button.btn.btn-primary Update
+              span 
+              a(href='/books/' + book.id + '/delete')
+                button.btn.btn-danger Delete
+          if !user
+            td
+              a(href='/cart/add/' + book.id)
+               button.btn.btn-primary Add to cart

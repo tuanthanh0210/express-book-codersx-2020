@@ -33,8 +33,9 @@
       "phone": "6996",
       "email": "admin@gmail.com",
       "password": "$2b$10$3txTbymDg7XHYShkNj.eoe5Sn1qvbwQhBpuyLzz4OCjf3jO0GLD2K",
-      "wrongLoginCount": 3,
-      "isAdmin": true
+      "wrongLoginCount": 0,
+      "isAdmin": true,
+      "avatar": "http://res.cloudinary.com/dnsdasaly/image/upload/v1588686122/o9y2ronxbsryxxqldtlj.png"
     },
     {
       "id": "Vu7DGHB3G",
@@ -52,7 +53,8 @@
       "wrongLoginCount": 0,
       "isAdmin": false,
       "name": "Thanh",
-      "phone": "123123"
+      "phone": "123123",
+      "avatar": "http://res.cloudinary.com/dnsdasaly/image/upload/v1588673712/ldhurkdosrokmfku7yxf.jpg"
     },
     {
       "id": "3LlUt_Tk2",
@@ -61,6 +63,16 @@
       "wrongLoginCount": 0,
       "isAdmin": false,
       "name": "Liu",
+      "phone": "123",
+      "avatar": "http://res.cloudinary.com/dnsdasaly/image/upload/v1588674225/xxwsa73o5xjnvkz49ps9.jpg"
+    },
+    {
+      "id": "LeHxz_XDC",
+      "email": "tuanthanh.sib@gmail.com",
+      "password": "$2b$10$t.HjliujuB1yTHkiOXX71umDaJW10.PoxwFOTRfx8J49Vw8mGN67a",
+      "wrongLoginCount": 4,
+      "isAdmin": false,
+      "name": "Hi Hi",
       "phone": "123"
     }
   ],
@@ -101,6 +113,14 @@
       "userId": "eLRGOxJw9",
       "bookId": "3a",
       "id": "RE-QIeJz3"
+    }
+  ],
+  "sessions": [
+    {
+      "id": "h9ToFATgR"
+    },
+    {
+      "id": "7RBwQkRxU"
     }
   ]
 }

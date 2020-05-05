@@ -1,0 +1,33 @@
+extends ../layouts/common
+
+block content
+  .container.pt-5
+  
+    h2.mb-4  Profile User
+    if user.avatar
+      .d-flex.justify-content-center
+        .card.border-0(style='width: 15rem;')
+          img.card-img-top.rounded-circle(src=user.avatar, alt='...')
+    else
+      .d-flex.justify-content-center
+        .card.border-0(style='width: 15rem;')
+          img.card-img-top.rounded-circle(src='https://res.cloudinary.com/dnsdasaly/image/upload/v1587889811/r0xxbnrirt87mikftelt.jpg', alt='...')
+
+    form.mt-4(action='/users/' + user.id + '/profile' , method='POST')
+      .form-group
+        label(for='email') Email
+        input#email.form-control.mb-2(type='text', name='email' value=user.email readonly)
+        label(for='name') Name
+        input#name.form-control.mb-2(type='text', name='name' value=user.name readonly)
+        label(for='phone') Phone
+        input#phone.form-control.mb-2(type='text', name='phone' value=user.phone readonly)
+        
+    .my-2
+      form(action="/users/profile/avatar", method="POST" enctype="multipart/form-data")
+        .form-group
+          input(type="hidden", name="id", value=user.id)
+          input.form-control-file(type="file", name="avatar")
+        button.btn.btn-primary Update Avatar
+        
+      
+      

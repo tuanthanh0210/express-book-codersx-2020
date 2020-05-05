@@ -1,8 +1,10 @@
 const db = require("../db")
+const Book = require("../models/book.model")
 
-let books = db.get("books").value();
+// let books = db.get("books").value();
 
-module.exports.postCreate = (req,res,next) => {
+module.exports.postCreate = async (req,res,next) => {
+    let books = await Book.find();
     let errors = [];
     if(!req.body.title){
         errors.push("Title is require")

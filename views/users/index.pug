@@ -25,6 +25,7 @@ block content
   table.table.table-hover
     thead
       tr
+        th Avatar
         th Title
         th Phone
         th Email
@@ -32,6 +33,11 @@ block content
     tbody
       each user in users
         tr
+          td
+            if user.avatar
+              img.rounded(src= user.avatar width="64" height="64")
+            else
+              img.rounded(src="https://res.cloudinary.com/dnsdasaly/image/upload/v1587889811/r0xxbnrirt87mikftelt.jpg" width="64" height="64")
           td #{user.name}
           td #{user.phone}
           td #{user.email}

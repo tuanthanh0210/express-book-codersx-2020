@@ -12,8 +12,7 @@ block content
       button.btn.btn-primary.ml-2 Search
   hr
 
-  if user
-    form(action="/books/create" method="POST")
+  form(action="/books/create" method="POST")
       .form-group
         label(for="title") Title Book
         input#title.form-control(type="text" name="title" value=values ? values.title : "")

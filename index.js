@@ -14,7 +14,14 @@ const userRoute = require("./routes/user.route")
 const bookRoute = require("./routes/book.route")
 const transactionRoute = require("./routes/transaction.route")
 const authRoute = require("./routes/auth.route")
-const cartRoute = require("./routes/cart.route")
+// const cartRoute = require("./routes/cart.route")
+
+const apiLoginRoute = require("./api/routes/login.route.js");
+const apiTransactionRoute = require("./api/routes/transaction.route.js");
+const apiBookRoute = require("./api/routes/book.route.js");
+const apiUserRoute = require("./api/routes/user.route.js");
+
+
 
 const authMiddleware = require("./middlewares/auth.middleware")
 // const sessionMiddleware = require("./middlewares/session.middleware.js");
@@ -38,5 +45,11 @@ app.use('/books', bookRoute)
 app.use('/transactions',authMiddleware.requireAuth, transactionRoute)
 app.use("/auth", authRoute)
 // app.use("/cart", cartRoute)
+
+app.use("/api", apiLoginRoute);
+app.use("/api", apiTransactionRoute);
+app.use("/api", apiBookRoute);
+app.use("/api", apiUserRoute);
+
 
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))

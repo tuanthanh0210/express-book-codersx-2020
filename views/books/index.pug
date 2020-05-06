@@ -30,10 +30,7 @@ block content
         th Cover Book
         th Title
         th Description   
-        if user                                                                                                                                                                                                                                                                                                                               
           th Actions
-        if !user 
-          th Cart
     tbody
       each book in books
         tr
@@ -44,14 +41,10 @@ block content
               img.rounded(src="https://res.cloudinary.com/dkh65bchm/image/upload/v1587720347/default-book_gwqxgy.jpg" width="64" height="64")
           td #{book.title}
           td #{book.description}
-          if user
-            td
+          td
               a(href='/books/' + book.id + '/update') 
                 button.btn.btn-primary Update
               span 
               a(href='/books/' + book.id + '/delete')
                 button.btn.btn-danger Delete
-          if !user
-            td
-              a(href='/cart/add/' + book.id)
-               button.btn.btn-primary Add to cart
+          

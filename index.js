@@ -3,6 +3,7 @@ const express = require('express')
 const mongoose = require("mongoose");
 const app = express()
 const port = process.env.PORT || 8081
+const cors = require('cors');
 
 mongoose.set("useUnifiedTopology", true);
 mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true });
@@ -31,6 +32,7 @@ app.set('view engine', 'pug')
 
 
 
+app.use(cors());
 app.use(bodyParser.json(process.env.SESSION_SECRET));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser(process.env.SESSION_SECRET))

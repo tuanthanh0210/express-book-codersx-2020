@@ -11,6 +11,15 @@ module.exports.index = async (req, res) => {
   res.json(returnBook);
 };
 
+module.exports.search = async (req,res) => {
+  let books = await Book.find()
+  let q = req.query.q;
+  let filterBooks = books.filter( book => 
+      book.title.toLowerCase().indexOf(q.toLowerCase()) !== -1 
+  );
+  res.json(filterBooks)
+}
+
 module.exports.create = async (req, res) => {
   let newBook = await Book.create(req.body);
 

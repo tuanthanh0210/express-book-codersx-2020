@@ -6,6 +6,8 @@ const router = express.Router();
 
 router.get("/books", controller.index);
 
+router.get("/books/search", controller.search)
+
 router.post("/books", controller.create);
 
 router.get("/books/:id/delete", controller.delete);

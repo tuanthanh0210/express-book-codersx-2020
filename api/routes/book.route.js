@@ -10,6 +10,8 @@ router.get("/books/search", controller.search)
 
 router.post("/books", controller.create);
 
+router.post("/books/:id", controller.update);
+
 router.get("/books/:id/delete", controller.delete);
 
 module.exports = router;

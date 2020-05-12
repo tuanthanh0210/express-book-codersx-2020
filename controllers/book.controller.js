@@ -34,7 +34,8 @@ module.exports.postCreate = async (req,res) => {
 
 module.exports.getUpdate = async (req,res) => {
     // let book = db.get("books").find({id: req.params.id}).value();
-    let book = await Book.findById(req.body.id)
+    let id = req.params.id;
+    let book = await Book.findById(id)
     res.render("books/update", {
         book: book
     }) 
@@ -45,7 +46,8 @@ module.exports.update = async (req,res) => {
     //     .find({ id: req.params.id })
     //     .assign({title: req.body.title, description: req.body.description})
     //     .write();
-    await Book.findByIdAndUpdate(req.body.id, {
+    let id = req.params.id;
+    await Book.findByIdAndUpdate(id, {
         title: req.body.title,
         description: req.body.description
     })
@@ -54,6 +56,8 @@ module.exports.update = async (req,res) => {
 
 module.exports.delete = async (req,res) => {
     // db.get('books').remove({id : req.params.id}).write()
-    await Book.findByIdAndRemove(id)
-    res.redirect("/books")
+    let id = req.params.id;
+
+    await Book.findByIdAndRemove(id);
+    res.redirect("/books",)
 }

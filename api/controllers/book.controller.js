@@ -4,6 +4,7 @@ module.exports.index = async (req, res) => {
   let books = await Book.find();
   let returnBook = books.map(book => {
     return {
+      id: book.id,
       title: book.title,
       description: book.description
     }
@@ -25,6 +26,19 @@ module.exports.create = async (req, res) => {
 
   res.json(newBook);
 };
+
+module.exports.update = async (req,res) => {
+  let id = req.params.id;
+  let book = await Book.findByIdAndUpdate(id, {
+      title: req.body.title,
+      description: req.body.description,
+  })
+  let updateBook = {
+    title: req.body.title,
+    description: req.body.description,
+  }
+  res.json(updateBook)
+}
 
 module.exports.delete = async (req, res) => {
   let id = req.params.id;

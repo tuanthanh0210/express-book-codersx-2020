@@ -21,6 +21,7 @@ const apiLoginRoute = require("./api/routes/login.route.js");
 const apiTransactionRoute = require("./api/routes/transaction.route.js");
 const apiBookRoute = require("./api/routes/book.route.js");
 const apiUserRoute = require("./api/routes/user.route.js");
+const apiTodoRoute = require("./api/routes/todo.route")
 
 
 
@@ -52,6 +53,7 @@ app.use("/api", apiLoginRoute);
 app.use("/api", apiTransactionRoute);
 app.use("/api", apiBookRoute);
 app.use("/api", apiUserRoute);
+app.use("/api", apiTodoRoute);
 
 
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))

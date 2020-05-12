@@ -22,24 +22,26 @@ module.exports.search = async (req,res) => {
 }
 
 module.exports.create = async (req, res) => {
-  let newTodo = await Todo.create(req.body);
-
-  res.json(newTodo);
+  await Todo.create(req.body);
+  let todos = await Todo.find()
+  res.json(todos);
 };
 
 module.exports.update = async (req,res) => {
     let id = req.params.id;
-    let todo = await Todo.findByIdAndUpdate(id, {
-        title: req.body.title,
+    await Todo.findByIdAndUpdate(id, {
+        // title: req.body.title,
+        isComplete: true
     })
-    todo.title = req.body.title;
-    res.json(todo)
+    let todos = await Todo.find();
+    res.json(todos)
 }
 
 module.exports.delete = async (req, res) => {
   let id = req.params.id;
 
-  let todo = await Todo.findByIdAndRemove(id);
+  await Todo.findByIdAndRemove(id);
+  let todos = await Todo.find()
 
-  res.json(todo);
+  res.json(todos);
 };
